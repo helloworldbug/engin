@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>横竖屏测试----监听事件、两种不同的倒入样式</title>
+    <style>
+        /*竖屏 css*/
+        /*@media screen and (orientation: portrait) {
+            
+            .wrap{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: red;
+            }
+        }*/
+        /*横屏 css*/
+        /*@media screen and (orientation: landscape) {
+            
+            .wrap{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: blue;
+            }
+        }*/
+    </style>
+    <!--竖屏-->
+    <link rel="stylesheet" media="all and (orientation:portrait)" href="css/portrait.css">
+    <!--横屏-->
+    <link rel="stylesheet" media="all and (orientation:landscape)" href="css/landscape.css">
+    <script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <img src="images/orig.jpg" class="circle-mask" alt="trees"/>
+
+        <div class="circle-mask" alt="trees">哈哈哈哈哈哈哈 </div>
+    </div>
+</body>
+    <script>  
+        //判断手机横竖屏状态：
+        window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+            if (window.orientation === 180 || window.orientation === 0) { 
+                alert('竖屏状态000000！');
+            } 
+            if (window.orientation === 90 || window.orientation === -90 ){ 
+                alert('横屏状态！9090');
+            }  
+        }, false); 
+        //移动端的浏览器一般都支持window.orientation这个参数，通过这个参数可以判断出手机是处在横屏还是竖屏状态。
+    </script>
+
+</html>

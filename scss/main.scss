@@ -1,0 +1,652 @@
+@import "animate";
+//@import "swiper";
+@import "slide";
+
+
+//.Main{position:absolute;top:0;left:0; width:100%; height: 100%; overflow: hidden; background:  #1f1f1f;}
+::-webkit-focus-inner{border:0;}
+button:active{
+    border:0;
+}
+//input,button,a,textarea {
+//    outline: none !important;
+//}
+.swiper-container *{
+    -webkit-user-slect: none;
+    -moz-user-slect: none;
+    -ms-user-slect: none;
+    user-slect: none;
+    -webkit-touch-callout:none;
+}
+.swiper-container,.swiper-slide{
+  //width: 100%;
+  //height: 100%;
+  background: #1f1f1f;
+  overflow: hidden;
+  position: relative;
+  //margin: auto auto;
+
+}
+
+.swiper-container{
+  width: 640px;
+    //width: 100%;
+  height: 1008px;
+//    border: 1px solid;
+  ////margin: auto;
+  ////position: relative;
+  ////height: 100%;
+  //top: 50%;
+  //left: 50%;
+  //-webkit-transform: translate(-50%,-50%);
+  //transform: translate(-50%,-50%);
+  //  position: absolute;
+    margin: 0 auto;
+}
+
+.swiper-wrapper{
+  position: relative;
+  //overflow: hidden;
+
+  -webkit-transition-property:-webkit-transform, left, top;
+  -webkit-transition-duration:0s;
+  -webkit-transform:translate3d(0, 0, 0);
+  -webkit-transition-timing-function:ease;
+    margin: 0 auto;
+//    overflow: hidden;
+  //top: 50%;
+  //transform: translate();
+}
+.swiper-slide.active{
+  z-index: -1;
+}
+
+.swiper-slide.hide{
+  display: none;
+}
+
+.swiper-slide.show{
+  display: block;
+}
+
+/* 设置滚动条的样式 */
+.swiper-slide::-webkit-scrollbar {
+  width: 0px;
+  display: none;
+}
+/* 滚动槽 */
+.swiper-slide::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 0px rgba(0,0,0,0);
+  border-radius: 0px;
+}
+/* 滚动条滑块 */
+.swiper-slide::-webkit-scrollbar-thumb {
+  border-radius: 0px;
+  background: rgba(0,0,0,0);
+  -webkit-box-shadow: inset 0 0 0px rgba(0,0,0,0);
+}
+
+.swiper-slide::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(255,0,0,0);
+}
+
+.half-zoom{
+//    zoom: 0.5;
+}
+
+
+.magazine-page-container {
+  position: absolute;
+  //top: 50% !important;
+  //left: 50% !important;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  //-webkit-transform: translate(-50%, -50%) !important;
+//  -moz-transform: translate(-50%, -50%);
+//  -ms-transform: translate(-50%, -50%);
+//  transform: translate(-50%, -50%) !important;
+}
+
+.magazine-page-container.show{
+  display: block;
+}
+
+.magazine-page-container.hide{
+  display: none;
+}
+//去掉其他不需要的样式，添加一个背景色#262626; 　create by  fishYu 2015-12-30
+.magazine-display-loading{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+}
+
+/*播放音乐按钮雷达*/
+@-webkit-keyframes player-button {
+    0% { opacity: 0;-webkit-transform: scale(1); }
+    30% {opacity: 1; }
+    60%,100%{opacity: 0;-webkit-transform: scale(1.8);
+    }
+}
+@keyframes player-button {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    30% {
+        opacity: 1;
+    }
+    60%, 100% {
+        opacity: 0;
+        -webkit-transform: scale(1.8);
+    }
+}
+
+/*投票样式开始*/
+@font-face {
+    font-family: 'icomoon';
+    src:url('http://ac-hf3jpeco.clouddn.com/38458eb48c67c404172d.eot?5wrhr3');
+    src:url('http://ac-hf3jpeco.clouddn.com/38458eb48c67c404172d.eot?5wrhr3#iefix') format('embedded-opentype'),
+    url('http://ac-hf3jpeco.clouddn.com/c7eb262ce7dfec6d3598.ttf?5wrhr3') format('truetype'),
+    url('http://ac-hf3jpeco.clouddn.com/03724fc1d9825d566959.woff?5wrhr3') format('woff'),
+    url('http://ac-hf3jpeco.clouddn.com/644e532b0293311c35f4.svg?5wrhr3#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+//[class^="icon-"], [class*=" icon-"] {
+*[data-vote^="icon-"]{
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+//div[class*=" icon-"]:before,div[class^="icon-"]:before{
+*[data-vote^="icon-"]:before{
+    position: relative;
+    top:2px;
+}
+
+//.icon-love:before {
+*[data-vote="icon-love"]:before{
+    content: "\e900";
+}
+//.icon-star:before {
+*[data-vote="icon-star"]:before{
+    content: "\e901";
+}
+//.icon-flag:before {
+*[data-vote="icon-flag"]:before{
+    content: "\e902";
+}
+//.icon-vote:before {
+*[data-vote="icon-vote"]:before{
+    content: "\e903";
+}
+/*投票样式结束*/
+
+/*指纹样式开始*/
+@font-face {
+    font-family: 'fingerprint';
+    src:url('http://ac-hf3jpeco.clouddn.com/4969ebad10c48b526cba.eot?woz78m');
+    src:url('http://ac-hf3jpeco.clouddn.com/4969ebad10c48b526cba.eot?woz78m#iefix') format('embedded-opentype'),
+    url('http://ac-hf3jpeco.clouddn.com/b2392f0e6e53eb114240.ttf?woz78m') format('truetype'),
+    url('http://ac-hf3jpeco.clouddn.com/14da155f66c0f5d5fbfa.woff?woz78m') format('woff'),
+    url('http://ac-hf3jpeco.clouddn.com/8b5383e017aa3abbc432.svg?woz78m#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+//[class*=" icon-fingerprint"],[class^="icon-fingerprint"]{
+*[data-type="me-fingerprint"]{
+    font-family: 'fingerprint';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+//.icon-fingerprint:before {
+//    content: "\e900";
+//}
+
+//div[class*=" icon-fingerprint"]:before,div[class^="icon-fingerprint"]:before{
+*[data-type="me-fingerprint"]:before{
+    content: "\e900";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+/*指纹样式结束*/
+
+/*涂抹样式*/
+.noOp{
+    opacity: 0 !important;
+}
+
+/*长按图片取消下载*/
+.noDownLoad{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@-webkit-keyframes fingerprintMove {
+    0%{
+        top: 97%;
+    }
+    100%{
+        top: 3%;
+    }
+}
+
+@keyframes fingerprintMove {
+    0%{
+        top: 97%;
+    }
+    100%{
+        top: 3%;
+    }
+}
+
+.fingerprint-move {
+    -webkit-animation-name: fingerprintMove;
+    animation-name: fingerprintMove;
+    -webkit-animation-duration: 1.6s;
+    animation-duration: 1.6s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+
+/**
+* 设置通用的单选或者多选框的样式
+*
+*/
+label[data-type="common-label"]::before {
+    content: "";
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    border-radius: 50%;
+    top: -5px;
+    -webkit-border-radius: 50%;
+    margin-right: 10px;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAA8FBMVEUAAAC/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v78AAAAnSUoRAAAATnRSTlMAAjd4rNLt+ByH4hOV+d2XWzIG3lbr/ag5ATynVwS9Kgqz92qx7JjqKPb1WWYVuh76+ymjpOM7PXnTMRI4ubxlWFqZNbZjZLQFFJaI5O5UscDAAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAZNJREFUOMuNldlawjAQhUMoUAg1pQiK7EvLqiwKAiqLuIDIef/HsUWQCqXpuWk6399MMpmeEGKXj/qlQDAUCgYkP/WRc5LDEdgUCcuOGIsqwAVXY0zTWEzlcUCJslPuMoHk1bUtkLpJJ5HIHGFZDuTyxx/ncwDP2iOFIkplp/WUSygWbPNVoFPnDVIdlcOcBqq1c6WoVWHsxxnUKTkr2kBzV5cEWsRFLQRvtwOOO+Kq3G/ydqfbcwd73U7bfIRxTwR6QNjsgz4GIvARfR+hiKdEYCoOSoaHMp2XAT+RoIpBFRIZYSwGxxgRHUwMMuhEgSYGNSjeQU+pn8zUnjfjuTxDcDHIzYI/ez1CL00xsJrCS5ulrTYjsiJs3KSyNZcoXtzByW6/TMfUjZtC353JDA3333W+HwsM4PXvRTMtZeHMLUxLsXVN4Q2ldyfuo47Pgj2wNIDJSZV6E8BYHgVnppGm/xnpwDLS5mmWFbes+Ws+ZsslG8+31sxXjguX1992s++vnc3eko8OpcCm09kEpOHR9fEDZB4/XyeVfQcAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTUtMTEtMTJUMTA6NDY6MjUrMDg6MDB2Eh+3AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE1LTExLTEyVDEwOjQ2OjI1KzA4OjAwB0+nCwAAAABJRU5ErkJggg==') center no-repeat;
+}
+
+input[data-type="common-check-radio"]:checked+label::before{
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAnFBMVEUAAAAiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQiwGQkwGWX4bY/yHiq58P////k9+wjwGUAAACVkjTbAAAAK3RSTlMAAjd4rNLt+ByH4hOV+VbrVwSXCrOxmFkVHvrjedPsOFhamQa2tAUUiOTurET7DQAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAFASURBVDjLjdXRcoIwEAXQAAFBoWhUrIBoa6vWNYj+/8c1A2lZISHcN8wZMizxQgiOZTvU9SYTz6WObRFd/GAKKNPAV7JZGEEnUTjru7cYFInnHbZgoAlbYLdcgTarJbrfGgaybu+ZwGCSPzcHQzZyLrEJeu81ZCYnN9+mZphuBQzMDiAQ5yAbAzOL2Lq1Gy/RlU1ynbtXDyQdQrWuqnh7TclO7+7P9ocdKdByyZ8aBwVBp7V8yMW+gwhDLpcVTkC0tQQqJ7bGD9MQlRMP8zKeWqqcGM/rwBvZd2Lg+/4AFU68wu6huHGucOJQjD5mxI/MLqrLJTRD1vy5CpMrZAUdTPBjZAF8/jfFcbhSjqikvvTuG5UUISft7smp05AHdZFu+pV7Zv1qZmd12V9+MMsu6rJvPh85da9penVp3vl8/AKYudE6u7CUggAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNS0xMS0xMlQxMDo0NjoyNSswODowMHYSH7cAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTUtMTEtMTJUMTA6NDY6MjUrMDg6MDAHT6cLAAAAAElFTkSuQmCC') center no-repeat;
+}
+
+/**
+*摇一摇动画
+*/
+.yaoYiYao{
+    -webkit-animation-duration: 1.3s;
+    animation-duration: 1.3s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-name: yaoYiYao;
+    animation-name: yaoYiYao;
+    -webkti-animation-timing-function:ease-in-out;
+    animation-timing-function:ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 10.69% 90.46% 0px !important;
+    transform-origin: 10.69% 90.46% 0px !important;
+}
+
+@-webkit-keyframes yaoYiYao{
+    0%{
+        -webkit-transform:rotate(0deg);
+        transform:rotate(0deg);
+    }
+    10%{
+        -webkit-transform:rotate(-11deg);
+        transform:rotate(-11deg);
+    }
+    25%{
+        -webkit-transform:rotate(30deg);
+        transform:rotate(30deg);
+    }
+    45%{
+        -webkit-transform:rotate(-5deg);
+        transform:rotate(-5deg);
+    }
+    60%{
+        -webkit-transform:rotate(25deg);
+        transform:rotate(25deg);
+    }
+    100%{
+        -webkit-transform:rotate(0deg);
+        transform:rotate(0deg);
+    }
+}
+@keyframes yaoYiYao{
+    0%{
+        -webkit-transform:rotate(0deg);
+        transform:rotate(0deg);
+    }
+    10%{
+        -webkit-transform:rotate(-11deg);
+        transform:rotate(-11deg);
+    }
+    25%{
+        -webkit-transform:rotate(30deg);
+        transform:rotate(30deg);
+    }
+    45%{
+        -webkit-transform:rotate(-5deg);
+        transform:rotate(-5deg);
+    }
+    60%{
+        -webkit-transform:rotate(25deg);
+        transform:rotate(25deg);
+    }
+    100%{
+        -webkit-transform:rotate(0deg);
+        transform:rotate(0deg);
+    }
+}
+
+/**
+*摇一摇图标
+*/
+@font-face {
+    font-family: 'yaoyiyao';
+    src:url('http://ac-hf3jpeco.clouddn.com/798cac39b7ee4ba5d180.eot?9da76a');
+    src:url('http://ac-hf3jpeco.clouddn.com/798cac39b7ee4ba5d180.eot?9da76a#iefix') format('embedded-opentype'),
+    url('http://ac-hf3jpeco.clouddn.com/3705206b3f1d1561c70b.ttf?9da76a') format('truetype'),
+    url('http://ac-hf3jpeco.clouddn.com/8e9bdf5c48c3d33d863a.woff?9da76a') format('woff'),
+    url('http://ac-hf3jpeco.clouddn.com/19cfea95911f15db6e07.svg?9da76a#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="me-yaoyiyao"], [class*=" me-yaoyiyao"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'yaoyiyao' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.me-yaoyiyao:before {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: -webkit-translate(-50%, -50%);
+    content: "\e900";
+}
+
+
+/*取消滚动条*/
+/* 设置滚动条的样式 */
+//.cancelScrollBar::-webkit-scrollbar {
+*[data-bar="cancel-scroll-bar"]::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+}
+/* 滚动槽 */
+//.cancelScrollBar::-webkit-scrollbar-track {
+*[data-bar="cancel-scroll-bar"]::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0px rgba(0,0,0,0);
+    border-radius: 0px;
+}
+/* 滚动条滑块 */
+//.cancelScrollBar::-webkit-scrollbar-thumb {
+*[data-bar="cancel-scroll-bar"]::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background: rgba(0,0,0,0);
+    -webkit-box-shadow: inset 0 0 0px rgba(0,0,0,0);
+}
+
+//.cancelScrollBar::-webkit-scrollbar-thumb:window-inactive {
+*[data-bar="cancel-scroll-bar"]::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255,0,0,0);
+}
+
+/**
+*一键拨号图标
+*/
+@font-face {
+    font-family: 'dialing';
+    src:url('http://ac-hf3jpeco.clouddn.com/66d451e5eab00e27ff53.eot?rmkyfn');
+    src:url('http://ac-hf3jpeco.clouddn.com/66d451e5eab00e27ff53.eot?rmkyfn#iefix') format('embedded-opentype'),
+    url('http://ac-hf3jpeco.clouddn.com/a06731cee6a546996b32.ttf?rmkyfn') format('truetype'),
+    url('http://ac-hf3jpeco.clouddn.com/cee8752de04288987f02.woff?rmkyfn') format('woff'),
+    url('http://ac-hf3jpeco.clouddn.com/6b8e514213f31ac56423.svg?rmkyfn#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+//[class^="icon-dialing"], [class*=" icon-dialing"] {
+*[data-type="me-dialing"],*[data-type="me-dialing-cancel-content"]{
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'dialing' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+//.icon-dialing:before {
+//    margin-right: 20px;
+//    content: "\e900";
+//}
+*[data-type="me-dialing"]:before{
+    margin-right: 20px;
+    content: "\e900";
+}
+//.icon-dialing-cancel-content:before {
+//    margin-right: 0 !important;
+//}
+*[data-type="me-dialing-cancel-content"]:before{
+    content: "\e900";
+}
+
+//标签样式
+.label-text-left{
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkMAAAA0CAMAAAC+X8z5AAAAV1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOl5NtAAAAHXRSTlOzAK2ynRM8qHxzVA4DpJOMaEk2Jx8IXy4rGYVPQdJowcsAAAEaSURBVHja7dxLUgJBEEXRTKWbrwgIip/9r1NnThgQ/TqCyTlruAFVWdVVfdP2uN4vnwvucLOgw1NB0NB1UZA0NPoRImvoJCGyht4kRNbQ50tB0tDWcpqsod1rQdTQuiBq6L0gauhYEDV0cj7GJAZDpAyGSBkMMU9DF4MhsoZ2q4KooUNB1NCmIGpoNBgiYTBEqgeDITJtS0ZosBgiNBZoiMc6F2TaSRmhvlpUk3HSQcqJKyk3P0j1n8u+IGqoBzdhCRvq87Igaqg/XAAhbKh/CqbxsT0pj34wX0O7r4LpDRkTkTZkTETakDERaUPGRGQNeciKtCEP6jFXQz6+J2jo38bfGWFDPdqdETbUw9r2jPv1TcP3aqEj7vILWOUGK78Q0JgAAAAASUVORK5CYII=") center left no-repeat ;
+}
+
+.label-text-right{
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkMAAAA0CAMAAAC+X8z5AAAAP1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACzJYIvAAAAFXRSTlOzAK2mKgWdPRNTinxzDpNoSTYfXxkPTCiJAAAA/ElEQVR42u3dyZGDQBBFQdQLOxIg+W/rOKCDYv4104Z3IOjuqgF+UZ/7eTy+GuBX5XVoiNDYNESoTBoiVC4NESpNQ4TqR0OExkNDhNauIUK7hki9NUTq1BCpS0OEStMQofrREKHx0BChtWuI0NY1ROilIVKLhkhNGiJUmoYI1VlDhDYNkZoHyEwDaIhE7h4gsvqmJtQ0RGbxj5HMy1kHma1riMizO7cnMs7uDxGpt7uwREpzJ5/M5G0Qmbc3imR2b6XJrF1DRJ7d3A8i42z+EJF6m4NGpDQzPclcZguTOc04J7PYtUBmsfOFSJ3sniJR9tkOPP6tjNsyP776AzceBPuvY8suAAAAAElFTkSuQmCC") center right no-repeat;
+}
+//图集的时候选中当前页的样式
+.photos-on{
+    background: rgba(0,0,0,.5) !important;
+    border : 1px solid rgba(255,255,255,.5) !important;
+}
+//没有事件
+.noEvents{
+    pointer-events: none;
+}
+
+//SVG的key值
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@-webkit-keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/*************************
+* 以下为ME期刊所需要的样式
+**************************/
+
+.item-white-view-port-li{
+    background: rgb(221, 221, 221);
+}
+
+.item-black-view-port-li{
+    background: rgba(255, 255, 255, .3);
+}
+
+.item-double-view-port-img{
+    border: 4px solid rgb(60, 176, 52);
+}
+/***************************
+* 目录上下出现或者隐藏的样式
+****************************/
+.slideInFromBottom{
+    -webkit-animation-name:slideInFromBottom;
+    animation-name:slideInFromBottom;
+    -webkit-animation-duration:.5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+}
+@-webkit-keyframes slideInFromBottom{
+    0%{
+        -webkit-transform:translate3d(0,100%,0);
+        transform:translate3d(0,100%,0);
+        visibility: visible;
+    }
+    to{
+        -webkit-transform:translate3d(0,0,0);
+        transform:translate3d(0,0,0);
+    }
+}
+@keyframes slideInFromBottom{
+    0%{
+        -webkit-transform:translate3d(0,100%,0);
+        transform:translate3d(0,100%,0);
+        visibility: visible;
+    }
+    to{
+        -webkit-transform:translate3d(0,0,0);
+        transform:translate3d(0,0,0);
+    }
+}
+//移出
+.slideOutToBottom{
+    -webkit-animation-name:slideOutToBottom;
+    animation-name:slideOutToBottom;
+    -webkit-animation-duration:.5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+}
+@-webkit-keyframes slideOutToBottom{
+    0%{
+        -webkit-transform:translate3d(0,0,0);
+        transform:translate3d(0,0,0);
+    }
+    to{
+        -webkit-transform:translate3d(0,100%,0);
+        tansform:translate3d(0,100%,0);
+        visibility: hidden;
+    }
+}
+@keyframes slideOutToBottom{
+    0%{
+        -webkit-transform:translate3d(0,0,0);
+        transform:translate3d(0,0,0);
+    }
+    to{
+        -webkit-transform:translate3d(0,100%,0);
+        tansform:translate3d(0,100%,0);
+        visibility: hidden;
+    }
+}
+/*
+*目录容器样式
+*/
+#view-port-wrap{
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding-top: 78px;
+    overflow: hidden;
+    display: none;
+}
+
+/**
+*增加有链接的时候，点击的状态
+*/
+*[data-click="common-opacity"]:active{
+    opacity: .8;
+}
+
+/**
+* 长页的滚动条样式
+*/
+#scrollBar::before {
+    content: "";
+    display: block;
+    float: right;
+    height: 200px;
+    width: 5px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+/**
+* 横翻换组的滚动条样式
+*/
+#gulpProgress:after {
+    content: "";
+    height: 10px;
+    width: 100%;
+    display: block;
+    background: rgba(0,0,0,0.6);
+    position: absolute;
+    bottom: 0;
+    border-radius: 5px;
+}

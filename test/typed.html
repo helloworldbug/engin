@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>打字效果测试测试</title>
+    <style>
+        .common{
+            width: 300px;
+            height: 100px;
+            font-size: 24px;
+            color: green;
+            background: gray;
+            overflow: hidden;
+        }
+        /* code for animated blinking cursor */
+        .typed-cursor{
+            opacity: 1;
+            font-weight: 100;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            -ms-animation: blink 0.7s infinite;
+            -o-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+        }
+        @-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-ms-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-o-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+    </style>
+    <script src="../vendor/jquery-2.2.0.min.js"></script>
+    <script src="../vendor/typed.min.js"></script>
+</head>
+
+<body>
+    <div class="common"></div>
+    
+</body>
+    <script>  
+        //第一种实现，通过插件typed.js
+        // $(function(){
+        //     $(".common").typed({
+        //         strings: ["First sentence.阿司法所阿萨德发生大岁阿斯达斯阿斯达斯打算大苏打三大"],
+        //         typeSpeed: 30,
+        //         backDelay: 500,
+        //         loop: false,
+        //         loopCount: false,
+        //         callback: function(){ foo(); }
+        //     });
+        // });
+        // function foo(){ console.log("Callback"); }
+        //第二种实现，通过循环
+        var s = "First sentence.阿司法所阿萨德发生大岁阿斯达斯阿斯达斯打算大苏打三大";
+        var con = $('.common');
+        var index = 0;
+        var length = s.length;
+        var tId = null;
+        var speed = 400;
+        var audio = "audio/d.mp3";
+        //开始打字效果
+        function startTyped(speed, audio){
+            con.text('');
+            //创建一个配合的音频
+            var audioDom = document.createElement("audio");
+            audioDom.setAttribute("src", audio);
+            audioDom.setAttribute("preload", "none");
+            audioDom.style.display = "none";
+            con.append($(audioDom));    //添加到文本中
+            audioDom.load();
+            audioDom.play();
+            tId=setInterval(function(){
+                //打字结束后，
+                if(index === length){
+                    if(audioDom){
+                        audioDom.pause();
+                        audioDom.currentTime = 0;
+                    }
+                    $(audioDom).remove();
+                    audioDom = null;
+                    clearInterval(tId);
+                }
+                if(audioDom){
+                    audioDom.pause();
+                    audioDom.currentTime = 0;
+                    audioDom.play();
+                }
+                con.append(s.charAt(index));
+                index++;
+            },speed);
+        }
+
+        function stopTyped（）｛
+        startTyped(speed, audio);
+
+        stopTyped();
+
+
+    </script>
+
+</html>

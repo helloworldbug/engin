@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3---filter测试</title>
+    <style>
+        .common{
+            width: 265px;
+            height: 30px;
+            font-size: 24px;
+            line-height: 30px;
+            color: green;
+            background: gray;
+        }
+        /*grayscale灰度*/
+        .grayscale1{
+            -webkit-filter:grayscale(1);
+        }
+        .grayscale0{
+            -webkit-filter:grayscale(0);
+        }
+        /*sepia褐色*/
+        .sepia1{
+            -webkit-filter:sepia(1);
+        }
+        .sepia0{
+            -webkit-filter:sepia(0);
+        }
+        /*saturate饱和度*/
+        .saturate1{
+            -webkit-filter:saturate(1);
+        }
+        .saturate3{
+            -webkit-filter:saturate(3);
+        }
+        /*hue-rotate色相旋转*/
+        .hue-rotate90{
+            -webkit-filter:hue-rotate(90deg);
+        }
+        .hue-rotate0{
+            -webkit-filter:hue-rotate(0deg);
+        }
+        /*invert反色*/
+        .invert1{
+            -webkit-filter:invert(1);
+        }
+        .invert0{
+            -webkit-filter:invert(0);
+        }
+        /*opacity透明度*/
+        .opacity1{
+            -webkit-filter:opacity(1);
+        }
+        .opacity02{
+            -webkit-filter:opacity(0.2);
+        }
+
+        /*brightness亮度*/
+        .brightness1{
+            -webkit-filter:brightness(1);
+        }
+        .brightness02{
+            -webkit-filter:brightness(0.2);
+        }
+
+        /*contrast对比度*/
+        .contrast1{
+            -webkit-filter:contrast(1);
+        }
+        .contrast2{
+            -webkit-filter:contrast(2);
+        }
+
+        /*blur模糊*/
+        .blur3{
+            -webkit-filter:blur(3px);
+        }
+        .blur0{
+            -webkit-filter:blur(0);
+        }
+
+
+        /*drop-shadow阴影*/
+        .drop-shadow1{
+            -webkit-filter:drop-shadow(5px 5px 5px #ccc);;
+        }
+        .drop-shadow0{
+            -webkit-filter:drop-shadow(20px 20px 20px #ccc);;
+        }
+    </style>
+    <script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+</head>
+
+<body>
+    <div class="common">0、原图</div>
+    <img title='normal' width='128' height='128' alt='HTML5 Logo' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+    <!--灰度-->
+    <div class="common">一、grayscale灰度</div>
+    <img title='grayscale1' width='128' height='128' alt='HTML5 Logo' class='grayscale1' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+    <img title='grayscale0' width='128' height='128' alt='HTML5 Logo' class='grayscale0' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+    <!--褐色-->
+    <div class="common">二、sepia褐色</div>
+    <img title='sepia1' width='128' height='128' alt='HTML5 Logo' class='sepia1' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+    <img title='sepia0' width='128' height='128' alt='HTML5 Logo' class='sepia0' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+
+    <div class="common">三、saturate饱和度</div>
+    <img title='saturate1' width='128' height='128' alt='HTML5 Logo' class='saturate1' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+    <img title='saturate3' width='128' height='128' alt='HTML5 Logo' class='saturate3' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+
+    <div class="common">四、hue-rotate色相旋转</div>
+    <img title='hue-rotate90' width='128' height='128' alt='HTML5 Logo' class='hue-rotate90' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+    <img title='hue-rotate0' width='128' height='128' alt='HTML5 Logo' class='hue-rotate0' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+
+    <div class="common">五、invert反色</div>
+    <img title='invert1' width='128' height='128' alt='HTML5 Logo' class='invert1' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+    <img title='invert0' width='128' height='128' alt='HTML5 Logo' class='invert0' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+
+    <div class="common">六、opacity透明度</div>
+    <img title='opacity1' width='128' height='128' alt='HTML5 Logo' class='opacity1' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+    <img title='opacity02' width='128' height='128' alt='HTML5 Logo' class='opacity02' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+
+    <div class="common">七、brightness亮度</div>
+    <img title='brightness1' width='128' height='128' alt='HTML5 Logo' class='brightness1' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+    <img title='brightness02' width='128' height='128' alt='HTML5 Logo' class='brightness02' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+
+    <div class="common">八、contrast对比度</div>
+    <img title='contrast1' width='128' height='128' alt='HTML5 Logo' class='contrast1' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+    <img title='contrast2' width='128' height='128' alt='HTML5 Logo' class='contrast2' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+
+    <div class="common">九、blur模糊</div>
+    <img title='blur3' width='128' height='128' alt='HTML5 Logo' class='blur3' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+    <img title='blur0' width='128' height='128' alt='HTML5 Logo' class='blur0' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+
+    <div class="common">十、drop-shadow阴影</div>
+    <img title='drop-shadow1' width='128' height='128' alt='HTML5 Logo' class='drop-shadow1' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+    <img title='drop-shadow0' width='128' height='128' alt='HTML5 Logo' class='drop-shadow0' 
+    src='http://www.php100.com/uploadfile/2012/1030/20121030080410580.jpg' />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br /><br />
+    <br />
+    <br /><br />
+    <br /><br />
+    <br />
+</body>
+    <script>  
+    </script>
+
+</html>

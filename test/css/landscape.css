@@ -1,0 +1,12 @@
+.wrap{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: blue;
+}
+
+.circle-mask{
+    -webkit-mask-box-image: url(../images/mask1.png);
+}
